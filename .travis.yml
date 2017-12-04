@@ -1,0 +1,38 @@
+# Config file for https://travis-ci.org/
+# Validate this file here - http://lint.travis-ci.org/
+
+# Tell Travis CI we are using PHP
+language: php
+
+# The platforms you wants to test on
+os:
+  - linux
+  
+# git configs
+git:
+  depth: 1
+
+# Define the php versions against we want to test our code
+php:
+    - 7.1
+
+
+matrix:
+  fast_finish: true
+
+
+# We don't want to run linux commands as super user
+sudo: false
+
+# Note: Code coverage requires php Xdebug extension  to enabled
+
+# Composer package installation
+install:
+  # Install composer packages, will also trigger dump-autoload
+  - travis_retry composer install --no-interaction
+
+# Tell Travis CI to monitor master and develop branches
+branches:
+  only: 
+    - master
+    - develop
