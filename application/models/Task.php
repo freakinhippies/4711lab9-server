@@ -58,4 +58,21 @@ class Task extends Entity {
       }
       return false;
     }
+
+    public function getTask() {
+        return $this -> task;
+    }
+
+    public function getPriority() {
+        return $this -> priority;
+    }
+
+    public function getSize() {
+        return $this -> size;
+    }
+
+    public function getGroup() {
+        return $this -> group;
+    }
+
 }
